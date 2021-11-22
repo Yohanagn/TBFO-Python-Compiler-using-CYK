@@ -6,4 +6,4 @@ NIM | Nama |
 13520047 | Hana Fathiyah |
 13520053 | Yohana Golkaria Nainggolan
 
-(link laporan)[https://itbdsti-my.sharepoint.com/:w:/g/personal/13520053_mahasiswa_itb_ac_id/EfckIXUjuJ5GpMcQgNYhv5AB-503rmnsYpjau6klUGVokg?e=VHJgFM]
+[link laporan](https://itbdsti-my.sharepoint.com/:w:/g/personal/13520053_mahasiswa_itb_ac_id/EfckIXUjuJ5GpMcQgNYhv5AB-503rmnsYpjau6klUGVokg?e=VHJgFM)
