@@ -1,6 +1,4 @@
-import os.path
 import argparse
-from typing import final
 import CFG2CNF as converter
 
 class Node:
