@@ -19,9 +19,9 @@ class Parser:
     def __call__(self, sentence, parse=False):
         self.input = sentence.split()
         if parse:
-            self.parse()
+            self.parsing()
     def grammerFile(self,grammar):
-        self.grammar = converter.CFG2CNF(converter.read(grammar))
+        self.grammar = converter.convert_grammar(converter.read_grammar(grammar))
     def parsing(self):
         length = len(self.input)
         if length > 0:
@@ -83,6 +83,3 @@ if __name__ == '__main__' :
     CYK = Parser(args.grammar, args.sentence)
     CYK.parsing()
     CYK.print_tree()
-
-
-        
