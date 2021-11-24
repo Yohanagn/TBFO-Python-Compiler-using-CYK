@@ -16,9 +16,9 @@ print('>>> Bandung Institute of Technology, 2021.')
 print('Diky Restu Maulana\t\t13520017')
 print('Hana Fathiyah\t\t\t13520047')
 print('Yohana Golkaria Nainggolan\t13520053\n')
+
 inputfile = input('Insert file name (.txt or .py): ')
-#grammarfile = input('Insert grammar file name: ')
-grammarfile = 'cnf.txt'
+grammarfile = input('Insert grammar file name: ')
 if isExist(inputfile) and isExist(grammarfile):
     lx = lexer.Lexer(lexer_rules.rules, skip_whitespace=True)
     CYK = cyk.Parser(grammarfile)
