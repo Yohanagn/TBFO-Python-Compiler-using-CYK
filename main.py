@@ -10,8 +10,15 @@ isAccepted = True
 isIfLevel = []
 level = 0
 
-inputfile = input('Masukkan file yang hendak di-compile(.txt atau .py): ')
-grammarfile = input('Masukkan file grammar: ')
+print('>>> PYTHON PARSER 1.0')
+print('>>> created by Keep Smile Group K01')
+print('>>> Bandung Institute of Technology, 2021.')
+print('Diky Restu Maulana\t\t13520017')
+print('Hana Fathiyah\t\t\t13520047')
+print('Yohana Golkaria Nainggolan\t13520053\n')
+inputfile = input('Insert file name (.txt or .py): ')
+#grammarfile = input('Masukkan file grammar: ')
+grammarfile = 'cnf.txt'
 if isExist(inputfile) and isExist(grammarfile):
     lx = lexer.Lexer(lexer_rules.rules, skip_whitespace=True)
     CYK = cyk.Parser(grammarfile)
@@ -67,8 +74,9 @@ if isExist(inputfile) and isExist(grammarfile):
         if isBlockComment:
             isSkipUntilNextBC = True
             isBlockComment = False
+    print("\nResult:", end = " ")
     if isAccepted:
-        print("\nAccepted")
+        print("Accepted")
     else:
         print(f"\nSyntax Error at line {i+1}:")
         print(f"    >>> {line.strip()}\n")
