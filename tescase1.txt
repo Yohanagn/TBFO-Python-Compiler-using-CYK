@@ -5,5 +5,19 @@
 
 if x > 0:
     break
+elif x < 0:
+    if (y < 0):
+        raise ThisMustBeWrong("wkwkwkwk")
+    elif (y>0):
+        return None
+    elif imajiner(wew) :
+        i += 1
+    elif youmustbekidding(right):
+        while (i <= 0):
+            return True 
+    elif iamnotkidding(shock):
+        continue 
+    else :
+        return False
 else :
     pass::
