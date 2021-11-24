@@ -3,7 +3,6 @@ import lexer
 import lexer_rules
 import cyk
 
-# FLAGS
 isBlockComment = False
 isSkipUntilNextBC = False
 isDef = False
@@ -11,29 +10,22 @@ isAccepted = True
 isIfLevel = []
 level = 0
 
-
-# MAIN PROGRAM
-inputfile = input('Input file: ')
-grammarfile = input('Grammar file: ')
+inputfile = input('Masukkan file yang hendak di-compile(.txt atau .py): ')
+grammarfile = input('Masukkan file grammar: ')
 if isExist(inputfile) and isExist(grammarfile):
-    # Setup Lexer and CYK Grammar
     lx = lexer.Lexer(lexer_rules.rules, skip_whitespace=True)
     CYK = cyk.Parser(grammarfile)
-    # Open File
     with open(inputfile, 'r') as file:
         lines = file.readlines()
     for i, line in enumerate(lines):
         lexered = ''
-        # Lexer each line in file
         lx.input(line)
         try:
             for tok in lx.tokens():
                 lexered += f'{tok!r}'
-            # print(lexered)
         except lexer.LexerError as err:
             print(f'LexerError at position {err.pos}')
-        
-        # Remove Comment, check block comments
+
         if "BBCOMMENT" in lexered:
             lexered = lexered.replace("BBCOMMENT ","")
         if "BCOMMENT" in lexered:
@@ -53,15 +45,11 @@ if isExist(inputfile) and isExist(grammarfile):
             continue
         if "COMMENT" in lexered:
             lexered = lexered.replace("COMMENT ","")
-        # if DEF is in lexered
         if "DEF" in lexered:
             level+=1
             isDef = True
         
-        # if IF is in lexered
-        # Elif and else must be followed with if first
         if ("ELIF" or "ELSE") in lexered:
-            # print('uwu')
             if level not in isIfLevel:
                 isAccepted = False
                 break
@@ -72,7 +60,6 @@ if isExist(inputfile) and isExist(grammarfile):
             level+=1
             isIfLevel.append(level)
 
-        # Parse lexered line
         CYK(lexered,parse=True)
         isAccepted = CYK.print_tree(output=False)
         if not isAccepted:
@@ -87,4 +74,4 @@ if isExist(inputfile) and isExist(grammarfile):
         print(f"    >>> {line.strip()}\n")
         print(f"Readed: {lexered}")
 else:
-    print("File not exist!")
+    print("There's no such file in directory!")
